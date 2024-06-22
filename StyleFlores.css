@@ -1,0 +1,138 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+body {
+    background-color: #000;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 10% 70% 20%; 
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "footer footer footer";
+}
+
+
+header{
+    grid-area: header;
+    margin:0 auto;
+    width:100vw;
+
+}
+
+header nav{
+    display:grid;
+  place-content: center;
+  justify-items: center;
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: repeat(3,1f);
+    margin:0 auto;
+    width:100vw;     
+}
+header nav ul{
+    display:grid;
+    place-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1f);
+    width:100%;
+    list-style: none;
+    
+}
+header nav ul li{
+    margin:0 auto;
+    padding:1rem;
+    width:100%;
+}
+header nav ul li a{
+    text-decoration: none;
+    place-self: center;
+    justify-self: center;
+    text-transform: uppercase;
+    border:1px solid gray;
+    padding:0.5rem;
+    border-radius:20px;
+}
+nav ul li:hover a {
+    background: linear-gradient(45deg, rgba(200, 23, 216, 0.8) 20%, rgba(100, 143, 90, 0.8) 30%, rgba(143, 90, 150, 0.8) 50%);
+    color: aquamarine;
+
+}
+ li:-ms-keyboard-active a{
+    transform:scale(1.5);
+}
+
+
+
+.container{
+    grid-area:main;
+    position:relative;
+    margin:0 auto;
+    place-items: center;
+    justify-self: center;
+}
+footer{
+    grid-area:footer;
+    margin:0 auto;
+    padding:1rem;
+    height:min(50px,80px);
+    grid-template-rows: 50px;
+    text-align: center;
+
+}
+
+.rodape{
+    background:#272649;
+    border-radius:25px;
+    padding:1rem;
+    animation:trocaCor 2s infinite alternate;
+}
+
+.rodape p {
+    font:italic 1rem/1rem  fantasy, sans-serif;
+    padding:0.1rem;
+    text-transform: uppercase;
+
+}
+
+.container i{
+    position:absolute;
+    left:30vw;
+    top:-30px;
+    width:200px;
+    height:200px;
+    margin:0 auto;
+    border-radius:100px 100px 0 100px;
+    transform-origin: 30px 30px;
+    mix-blend-mode:luminosity;
+    box-shadow: 25px 25px 5px var(--color) inset , 
+    5px 5px 50px var(--color);
+    animation: i var(--duration) var(--delay) infinite linear;
+}
+    @keyframes i{
+        to{
+            transform:rotate(1turn);
+        }
+       
+    }
+
+    
+    .container i:nth-child(odd){
+        animation-direction:reverse;
+    }
+
+    @keyframes trocaCor{
+        to{
+            background:blue;
+        }
+
+        from{
+            background: red;
+        }
+    }
